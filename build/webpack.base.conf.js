@@ -2,21 +2,20 @@ var path = require('path')
 var utils = require('./utils')
 var config = require('../config')
 var vueLoaderConfig = require('./vue-loader.conf')
+const entry = require('./entry');
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
 
 module.exports = {
-  entry: {
-    app: './src/main.js'
-  },
+  entry: entry.getJSEntry('./src/**/*-main.js'),//多入口
   output: {
     path: config.build.assetsRoot,
     filename: '[name].js',
     publicPath: process.env.NODE_ENV === 'production'
       ? config.build.assetsPublicPath
-      : config.dev.assetsPublicPath
+      : config.dev.assetsPublicPath //资源文件的 server 上的路径
   },
   resolve: {
     extensions: ['.js', '.vue', '.json'],
@@ -59,6 +58,13 @@ module.exports = {
         options: {
           limit: 10000,
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
+        }
+      },
+      {
+        test: /\.html$/,
+        loader: 'html-loader',
+        options: {
+          minimize: false
         }
       }
     ]
