@@ -1,6 +1,7 @@
 # outsource
 
 > 初始化一下模板
+多页vue-cli
 
 ## Build Setup
 
