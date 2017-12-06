@@ -1,7 +1,9 @@
 # outsource
 
 > 初始化一下模板
-多页vue-cli
+
+* 多页vue-cli
+* 项目适合管理界面
 
 ## Build Setup
 
@@ -17,4 +19,7 @@ npm run build
 
 # build for production and view the bundle analyzer report
 npm run build --report
+
+# build完成后测试一下
+gulp up
 ```
